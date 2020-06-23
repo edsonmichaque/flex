@@ -2,6 +2,16 @@
 Flex2D is a 2D physics engine library written in C programming language
 
 ## Table of Contents
+1. Features
+1. Requirements
+1. Installation
+1. Configuration
+1. Usage
+1. Related Projects
+1. Contributing
+1. Changelog
+1. Authors
+1. License
 
 ## Features
 
@@ -34,4 +44,4 @@ Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
-limitations under the License
+limitations under the License.

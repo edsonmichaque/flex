@@ -16,5 +16,5 @@ jobs:
       with: 
         submodules: true
     - name: make
-      run: make -B
+      run: make -B all test
 

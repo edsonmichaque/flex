@@ -1,5 +1,5 @@
 [package]
-name = "flex3d"
+name = "flex2d"
 version = "0.1.0"
 authors = ["Edson Michaque <edson@michaque.com>"]
 edition = "2018"

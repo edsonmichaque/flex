@@ -27,6 +27,22 @@ impl Vector {
     pub fn magnitude(&self) -> f64 {
         self.magnitude_squared().sqrt()
     }
+
+    pub fn normalize(&self) -> Vector {
+        let length = self.magnitude();
+
+        if length == 0f64 {
+            return Vector {
+                x: 0f64,
+                y: 0f64,
+            };
+        }
+
+        Vector {
+            x: self.x / length,
+            y: self.y / length,
+        }
+    }
 }
 
 #[cfg(test)]
@@ -75,5 +91,22 @@ mod vector_test {
         let p1 = Vector::new(p1x, p1y);
 
         assert_eq!(p0.distance_squared(&p1), ((p0x-p1x).powi(2) + (p0y-p1y).powi(2)).sqrt());
+    }
+
+    #[test]
+    fn vector_normalize() {
+        let p0x = 1.0f64;
+        let p0y = 1.0f64;
+        let p0 = Vector::new(p0x, p0y);
+
+        let length = ((p0x*p0x) + (p0y*p0y)).sqrt();
+        let normal_vector_x = p0x / length;
+        let normal_vector_y = p0y / length;
+
+
+        let normal_vector = p0.normalize();
+        assert_eq!(normal_vector.x, normal_vector_x);
+        assert_eq!(normal_vector.y, normal_vector_y);
+
     }
 }

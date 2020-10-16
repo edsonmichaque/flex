@@ -6,10 +6,7 @@ pub struct Vector {
 
 impl Vector {
     pub fn new(x: f64, y: f64) -> Self {
-        Vector {
-            x,
-            y,
-        }
+        Vector { x, y }
     }
 
     pub fn distance_squared(&self, other: &Vector) -> f64 {
@@ -32,10 +29,7 @@ impl Vector {
         let length = self.magnitude();
 
         if length == 0f64 {
-            return Vector {
-                x: 0f64,
-                y: 0f64,
-            };
+            return Vector { x: 0f64, y: 0f64 };
         }
 
         Vector {
@@ -55,7 +49,7 @@ mod vector_test {
         let p0y = 1.0f64;
         let p0 = Vector::new(p0x, p0y);
 
-        assert_eq!(p0.magnitude_squared(), p0x*p0x + p0y*p0y);
+        assert_eq!(p0.magnitude_squared(), p0x * p0x + p0y * p0y);
     }
 
     #[test]
@@ -64,7 +58,7 @@ mod vector_test {
         let p0y = 1.0f64;
         let p0 = Vector::new(p0x, p0y);
 
-        assert_eq!(p0.magnitude(), (p0x*p0x + p0y*p0y).sqrt());
+        assert_eq!(p0.magnitude(), (p0x * p0x + p0y * p0y).sqrt());
     }
 
     #[test]
@@ -72,12 +66,15 @@ mod vector_test {
         let p0x = 1.0f64;
         let p0y = 1.0f64;
         let p0 = Vector::new(p0x, p0y);
-        
+
         let p1x = 1.0f64;
         let p1y = 1.0f64;
         let p1 = Vector::new(p1x, p1y);
 
-        assert_eq!(p0.distance_squared(&p1), (p0x-p1x).powi(2) + (p0y-p1y).powi(2));
+        assert_eq!(
+            p0.distance_squared(&p1),
+            (p0x - p1x).powi(2) + (p0y - p1y).powi(2)
+        );
     }
 
     #[test]
@@ -85,12 +82,15 @@ mod vector_test {
         let p0x = 1.0f64;
         let p0y = 1.0f64;
         let p0 = Vector::new(p0x, p0y);
-        
+
         let p1x = 1.0f64;
         let p1y = 1.0f64;
         let p1 = Vector::new(p1x, p1y);
 
-        assert_eq!(p0.distance_squared(&p1), ((p0x-p1x).powi(2) + (p0y-p1y).powi(2)).sqrt());
+        assert_eq!(
+            p0.distance_squared(&p1),
+            ((p0x - p1x).powi(2) + (p0y - p1y).powi(2)).sqrt()
+        );
     }
 
     #[test]
@@ -99,14 +99,12 @@ mod vector_test {
         let p0y = 1.0f64;
         let p0 = Vector::new(p0x, p0y);
 
-        let length = ((p0x*p0x) + (p0y*p0y)).sqrt();
+        let length = ((p0x * p0x) + (p0y * p0y)).sqrt();
         let normal_vector_x = p0x / length;
         let normal_vector_y = p0y / length;
-
 
         let normal_vector = p0.normalize();
         assert_eq!(normal_vector.x, normal_vector_x);
         assert_eq!(normal_vector.y, normal_vector_y);
-
     }
 }

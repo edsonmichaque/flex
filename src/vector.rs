@@ -32,10 +32,7 @@ impl Vector {
             return Vector { x: 0f64, y: 0f64 };
         }
 
-        Self {
-            x: self.x / length,
-            y: self.y / length,
-        }
+        Self::new(self.x / length, self.y / length)
     }
 }
 

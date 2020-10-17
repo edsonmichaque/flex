@@ -26,13 +26,13 @@ impl Vector {
     }
 
     pub fn normalize(&self) -> Self {
-        let length = self.magnitude();
+        let mut length = self.magnitude();
 
-        if length == 0f64 {
-            return Vector { x: 0f64, y: 0f64 };
+        if length > 0f64 {
+            length = 1 / length;
         }
 
-        Self::new(self.x / length, self.y / length)
+        Self::new(self.x * length, self.y * length)
     }
 }
 

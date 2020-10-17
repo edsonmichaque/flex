@@ -6,7 +6,7 @@ pub struct Vector {
 
 impl Vector {
     pub fn new(x: f64, y: f64) -> Self {
-        Vector { x, y }
+        Self { x, y }
     }
 
     pub fn distance_squared(&self, other: &Vector) -> f64 {
@@ -25,14 +25,14 @@ impl Vector {
         self.magnitude_squared().sqrt()
     }
 
-    pub fn normalize(&self) -> Vector {
+    pub fn normalize(&self) -> Self {
         let length = self.magnitude();
 
         if length == 0f64 {
             return Vector { x: 0f64, y: 0f64 };
         }
 
-        Vector {
+        Self {
             x: self.x / length,
             y: self.y / length,
         }

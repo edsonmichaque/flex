@@ -59,6 +59,15 @@ mod vector_test {
     }
 
     #[test]
+    fn vector_magnitude() {
+        let p0x = 1.0f64;
+        let p0y = 1.0f64;
+        let p0 = Vector::new(p0x, p0y);
+
+        assert_eq!(p0.length(), (p0x * p0x + p0y * p0y).sqrt());
+    }
+
+    #[test]
     fn vector_distance_squared() {
         let p0x = 1.0f64;
         let p0y = 1.0f64;

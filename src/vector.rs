@@ -25,14 +25,22 @@ impl Vector {
         self.magnitude_squared().sqrt()
     }
 
+    pub fn length(&self) -> f64 {
+        self.magnitude()
+    }
+
     pub fn normalize(&self) -> Self {
         let mut length = self.magnitude();
 
         if length > 0f64 {
-            length = 1 / length;
+            length = 1_f64 / length;
         }
 
         Self::new(self.x * length, self.y * length)
+    }
+
+    pub fn scale(&self, scalar: f64) -> Self {
+        Self::new(self.x * scalar, self.y * scalar)
     }
 }
 
@@ -59,7 +67,20 @@ mod vector_test {
     }
 
     #[test]
-    fn vector_magnitude() {
+    fn vector_scale() {
+        let p0x = 1.0f64;
+        let p0y = 1.0f64;
+        let p0 = Vector::new(p0x, p0y);
+        let scalar = 3f64;
+        let p1 = p0.scale(scalar);
+
+        assert_eq!(p1.x, p0x * scalar);
+        assert_eq!(p1.y, p0y * scalar);
+
+    }
+
+    #[test]
+    fn vector_length() {
         let p0x = 1.0f64;
         let p0y = 1.0f64;
         let p0 = Vector::new(p0x, p0y);
